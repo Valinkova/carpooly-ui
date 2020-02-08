@@ -1,0 +1,48 @@
+
+<div class="form-container ">
+    <form class="clr-form clr-form-horizontal">
+        <div class="clr-form-control">
+            <label for="email" class="clr-control-label">Email</label>
+            <div class="clr-control-container">
+                <div class="clr-input-wrapper">
+                    <input type="text" name="email" id="email" placeholder="example@gmail.com"
+                           class="clr-input" [(ngModel)]="email">
+                    <clr-icon *ngIf="!validateEmail()" class="red-icon"
+                              shape="info-standard"></clr-icon>
+                    <clr-icon *ngIf="validateEmail() && email!=''" class="green-icon"
+                              shape="success-standard"></clr-icon>
+                </div>
+                <span *ngIf="!validateEmail()" class="clr-subtext">The inserted email has wrong
+                    construction
+                </span>
+            </div>
+        </div>
+
+        <div class="clr-form-control">
+            <label for="password" class="clr-control-label">Password</label>
+            <div class="clr-control-container">
+                <div class="clr-input-wrapper">
+                    <input type="text" id="password" name="password" placeholder="******"
+                           class="clr-input" [(ngModel)]="password">
+                    <clr-icon *ngIf="!validatePassword()" class="red-icon"
+                              shape="info-standard"></clr-icon>
+                    <clr-icon *ngIf="validatePassword() && password!=''" class="green-icon"
+                              shape="success-standard"></clr-icon>
+                </div>
+                <span *ngIf="!validatePassword()" class="clr-subtext">Password must be with
+                    6 characters</span>
+            </div>
+        </div>
+    </form>
+
+    <div class="submit-button">
+        <button [disabled]="!validatePassword() || !validateEmail() && (email!=='' && password!=='')"
+                class="btn btn-primary"
+                (click)="onSubmit()">Log in</button>
+    </div>
+
+</div>
+
+
+
+

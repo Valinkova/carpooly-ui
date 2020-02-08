@@ -10,10 +10,11 @@ import {SignupPageComponent} from './signup/signup-page.component';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import {MainPageComponent} from './main/main-page.component';
-import {SignInService} from './services/sign-in.service';
 import {HomePageComponent} from './home/home-page.component';
 import {JoinTripComponent} from './join-trip/join-trip.component';
 import {CreateTripComponent} from './create-trip/create-trip.component';
+import { LoginService } from './shared/services/login.service';
+import { RegistrationService } from './shared/services/registration.service';
 
 @NgModule({
     declarations: [
@@ -34,7 +35,7 @@ import {CreateTripComponent} from './create-trip/create-trip.component';
         FormsModule
 
     ],
-    providers: [SignInService],
+    providers: [LoginService,RegistrationService],
     bootstrap: [AppComponent]
 })
 export class AppModule {

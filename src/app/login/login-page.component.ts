@@ -1,47 +1,50 @@
-import {Component} from '@angular/core';
-import {SignInService} from '../services/sign-in.service';
-import {Router} from '@angular/router';
+import { Component } from "@angular/core";
+import { LoginService } from "../shared/services/login.service";
+import { Router } from "@angular/router";
 
 @Component({
-    selector: 'login-page',
-    templateUrl: './login-page.component.html',
-    styleUrls: ['./login-page.component.css']
+  selector: "login-page",
+  templateUrl: "./login-page.component.html",
+  styleUrls: ["./login-page.component.css"]
 })
 export class LoginPageComponent {
+  private email: string;
+  private password: string;
 
-    private email: string;
-    private password: string;
+  constructor(private loginService: LoginService, private router: Router) {
+    this.email = "";
+    this.password = "";
+  }
 
-    constructor(private signInService: SignInService, private router: Router) {
-        this.email = '';
-        this.password = '';
+  onSubmit() {
+    try {
+      this.loginService
+        .login({ email: this.email, password: this.password })
+        .subscribe(message => {
+          if (message === "success login") {
+            this.router
+              .navigate(["main-page"])
+              .then(r => console.log("Its successful"));
+          }
+        });
+    } catch (e) {
+      this.router
+        .navigate(["main-page"])
+        .then(r => console.log("Its succesxwsful"));
     }
+  }
 
-    onSubmit() {
-        try {
-            this.signInService.isTheUserExist(this.email, this.password).subscribe(message => {
-                if (message === 'success login') {
-                    this.router.navigate(['main-page']).then(r => console.log('Its successful'));
-                }
-            });
-        } catch (e) {
-            this.router.navigate(['main-page']).then(r => console.log('Its successful'));
-        }
-
+  private validateEmail() {
+    if (this.email === "") {
+      return true;
     }
+    return !(!this.email.includes("@") || this.email.indexOf("@") === 0);
+  }
 
-    private validateEmail() {
-        if (this.email === '') {
-            return true;
-        }
-        return !(!this.email.includes('@') ||
-            this.email.indexOf('@') === 0);
+  private validatePassword() {
+    if (this.password === "") {
+      return true;
     }
-
-    private validatePassword() {
-        if (this.password === '') {
-            return true;
-        }
-        return this.password.length === 6;
-    }
+    return this.password.length === 6;
+  }
 }

@@ -3,6 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "docker-build": "docker build -t carpooly-ui .",
+    "docker-start": "docker run -it -p 4200:4200 carpooly-ui",
     "docker": "ng serve --host 0.0.0.0",
     "start": "ng serve",
     "build": "ng build",

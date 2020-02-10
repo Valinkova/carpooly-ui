@@ -1,8 +1,8 @@
 
 export interface Account {
-    id: string;
+    id?: string;
     email: string;
-    secret: string;
+    passwordHash: string;
     firstName: string;
     surname: string;
 }

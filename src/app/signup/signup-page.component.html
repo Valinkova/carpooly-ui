@@ -1,59 +1,74 @@
 <div class="form-container">
-    <form class="clr-form clr-form-horizontal">
+    <div class="sign-up-title">
+        <div id="title">Sign up</div>
+    </div>
+
+    <form [formGroup]="registrationForm" class="clr-form clr-form-horizontal">
         <div class="clr-form-control">
-            <label for="email" class="clr-control-label">Username</label>
+            <label for="email" class="clr-control-label">email</label>
             <div class="clr-control-container">
                 <div class="clr-input-wrapper">
                     <input type="text" id="email" placeholder="example@gmail.com"
-                           class="clr-input">
-                    <clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+                           class="clr-input" formControlName="email">
+                    <clr-icon *ngIf="registrationForm.get('email').invalid" class="red-icon"
+                              shape="exclamation-circle"></clr-icon>
                 </div>
+                <span *ngIf="registrationForm.get('email').invalid" class="clr-subtext">This
+                    field is required
+                </span>
             </div>
         </div>
 
         <div class="clr-form-control">
-            <label for="password" class="clr-control-label">Password</label>
+            <label for="password" class="clr-control-label">password</label>
             <div class="clr-control-container">
                 <div class="clr-input-wrapper">
                     <input type="text" id="password" placeholder="******"
-                           class="clr-input">
-                    <clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+                           class="clr-input" formControlName="password">
+                    <clr-icon *ngIf="registrationForm.get('password').invalid"
+                              class="red-icon" shape="exclamation-circle"></clr-icon>
                 </div>
+                <span *ngIf="registrationForm.get('password').invalid" class="clr-subtext">This
+                    field is required and must be at least 6 characters long
+                </span>
             </div>
         </div>
 
         <div class="clr-form-control">
-            <label for="password" class="clr-control-label">again</label>
-            <div class="clr-control-container">
-                <div class="clr-input-wrapper">
-                    <input type="text" id="password2" placeholder="******"
-                           class="clr-input">
-                    <clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
-                </div>
-            </div>
-        </div>
-
-        <div class="clr-form-control">
-            <label for="password" class="clr-control-label">name</label>
+            <label for="name" class="clr-control-label">first name</label>
             <div class="clr-control-container">
                 <div class="clr-input-wrapper">
                     <input type="text" id="name" placeholder="name"
-                           class="clr-input">
-                    <clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+                           class="clr-input" formControlName="firstName">
+                    <clr-icon *ngIf="registrationForm.get('firstName').invalid"
+                              class="red-icon" shape="exclamation-circle"></clr-icon>
                 </div>
+                <span *ngIf="registrationForm.get('firstName').invalid" class="clr-subtext">This
+                    field is required and must be at least 1 characters long
+                </span>
             </div>
         </div>
 
         <div class="clr-form-control">
-            <label for="password" class="clr-control-label">last name</label>
+            <label for="lastname" class="clr-control-label">last name</label>
             <div class="clr-control-container">
                 <div class="clr-input-wrapper">
                     <input type="text" id="lastname" placeholder="last name"
-                           class="clr-input">
-                    <clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+                           class="clr-input" formControlName="lastName">
+                    <clr-icon *ngIf="registrationForm.get('lastName').invalid"
+                              class="red-icon" shape="exclamation-circle"></clr-icon>
                 </div>
+                <span *ngIf="registrationForm.get('lastName').invalid" class="clr-subtext">This
+                    field is required and must be at least 1 characters long
+                </span>
             </div>
         </div>
 
     </form>
+
+    <div class="submit-button">
+        <button class="btn btn-primary submit-button" [disabled]="!isValidForm()"
+                (click)="onSubmitRegistration()">Sign up
+        </button>
+    </div>
 </div>

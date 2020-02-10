@@ -1,0 +1,22 @@
+.image {
+    width: 20px;
+    height: 20px;
+}
+
+.trip-container {
+    position: relative;
+    top: 100px;
+    left: 200px;
+}
+
+.title-rank{
+    font-size: 30px;
+    text-align: center;
+    padding: 10px;
+    border-bottom: 1px solid lightgrey;
+}
+
+.rank{
+    padding: 10px;
+    margin: 30px;
+}

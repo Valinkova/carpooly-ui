@@ -13,8 +13,11 @@ import {MainPageComponent} from './main/main-page.component';
 import {HomePageComponent} from './home/home-page.component';
 import {JoinTripComponent} from './join-trip/join-trip.component';
 import {CreateTripComponent} from './create-trip/create-trip.component';
-import { LoginService } from './shared/services/login.service';
-import { RegistrationService } from './shared/services/registration.service';
+import {LoginService} from './shared/services/login.service';
+import {RegistrationService} from './shared/services/registration.service';
+import {ViewProfileComponent} from './view-profile/view-profile.component';
+import {ReactiveFormsModule} from '@angular/forms';
+
 
 @NgModule({
     declarations: [
@@ -24,7 +27,8 @@ import { RegistrationService } from './shared/services/registration.service';
         MainPageComponent,
         HomePageComponent,
         JoinTripComponent,
-        CreateTripComponent
+        CreateTripComponent,
+        ViewProfileComponent
     ],
     imports: [
         AppRoutingModule,
@@ -32,10 +36,11 @@ import { RegistrationService } from './shared/services/registration.service';
         ClarityModule,
         BrowserAnimationsModule,
         HttpClientModule,
-        FormsModule
+        FormsModule,
+        ReactiveFormsModule
 
     ],
-    providers: [LoginService,RegistrationService],
+    providers: [LoginService, RegistrationService],
     bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -1,7 +1,33 @@
-.form-container{
-    /*background-color: rgba(0,0,0,.1);*/
-    padding: 120px;
+.form-container {
+    margin: 0 auto;
     width: 30%;
     height: 20%;
 }
 
+.red-icon, .clr-subtext {
+    color: darkred;
+}
+
+.submit-button {
+    margin: 30px auto;
+    width: 40%;
+    height: 20%;
+}
+
+.sign-up-title {
+    margin: 30px auto;
+    width: 100%;
+    height: 20%;
+    border-bottom: 1px solid grey;
+}
+
+#title{
+    margin: 30px auto;
+    width: 30%;
+    height: 20%;
+    font-size: xx-large;
+}
+
+.body{
+    background-color: grey;
+}

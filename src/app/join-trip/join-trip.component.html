@@ -1,10 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+<div class="clr-row trip-container">
+    <div *ngFor="let trip of trips" class="clr-col-lg-4 clr-col-sm-6 clr-col-12">
+        <div class="card trip">
+            <div class="card-header">
+                Name: {{trip.name}}
+            </div>
+            <div class="card-block">
+                <div>From: {{trip.fromCity}}</div>
+                <div>To: {{trip.toCity}}</div>
+                <div>Price: {{trip.price}}</div>
+                <div>Free places: {{trip.capacity}}</div>
+                <div>Driver: {{trip.driver}}</div>
+            </div>
+            <div class="card-footer">
+                <a class="btn btn-primary">JOIN</a>
+                <a class="btn btn-primary" (click)="navigateToViewProfilePage()">VIEW PROFILE</a>
+            </div>
+        </div>
+    </div>
+</div>

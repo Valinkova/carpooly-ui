@@ -1,50 +1,38 @@
-import { Component } from "@angular/core";
-import { LoginService } from "../shared/services/login.service";
-import { Router } from "@angular/router";
+import {Component} from '@angular/core';
+import {LoginService} from '../shared/services/login.service';
+import {Router} from '@angular/router';
+import {FormGroup} from '@angular/forms';
+import {FormControl} from '@angular/forms';
+import {Validators} from '@angular/forms';
 
 @Component({
-  selector: "login-page",
-  templateUrl: "./login-page.component.html",
-  styleUrls: ["./login-page.component.css"]
+    selector: 'login-page',
+    templateUrl: './login-page.component.html',
+    styleUrls: ['./login-page.component.css']
 })
 export class LoginPageComponent {
-  private email: string;
-  private password: string;
+    loginForm = new FormGroup({
+        email: new FormControl('', Validators.required),
+        password: new FormControl('', [Validators.required, Validators.minLength(6)]),
+    });
 
-  constructor(private loginService: LoginService, private router: Router) {
-    this.email = "";
-    this.password = "";
-  }
-
-  onSubmit() {
-    try {
-      this.loginService
-        .login({ email: this.email, password: this.password })
-        .subscribe(message => {
-          if (message === "success login") {
-            this.router
-              .navigate(["main-page"])
-              .then(r => console.log("Its successful"));
-          }
-        });
-    } catch (e) {
-      this.router
-        .navigate(["main-page"])
-        .then(r => console.log("Its succesxwsful"));
+    constructor(private loginService: LoginService, private router: Router) {
     }
-  }
 
-  private validateEmail() {
-    if (this.email === "") {
-      return true;
+    onSubmit() {
+        this.loginService
+            .login({email: this.loginForm.get('email').value, password: this.loginForm.get('password').value})
+            .subscribe((response: Response) => {
+                if (response.ok) {
+                    this.router
+                        .navigate(['main-page'])
+                        .then(r => console.log('Its successful'));
+                }
+            });
     }
-    return !(!this.email.includes("@") || this.email.indexOf("@") === 0);
-  }
 
-  private validatePassword() {
-    if (this.password === "") {
-      return true;
+    isValidForm(): boolean {
+        return this.loginForm.valid;
     }
-    return this.password.length === 6;
-  }
+
 }

@@ -6,11 +6,18 @@ import {HomePageComponent} from './home/home-page.component';
 import {MainPageComponent} from './main/main-page.component';
 import {JoinTripComponent} from './join-trip/join-trip.component';
 import {CreateTripComponent} from './create-trip/create-trip.component';
+import {ViewProfileComponent} from './view-profile/view-profile.component';
 
 export const ROUTES: Routes = [
     {path: 'home', component: HomePageComponent},
     {path: 'login', component: LoginPageComponent},
-    {path: 'sign-up', component: SignupPageComponent},
+    {
+        path: 'sign-up',
+        component: SignupPageComponent,
+        children: [
+            {path: 'login', component: LoginPageComponent},
+        ]
+    },
     {
         path: 'main-page',
         component: MainPageComponent,
@@ -19,6 +26,7 @@ export const ROUTES: Routes = [
             {path: 'create-trip', component: CreateTripComponent}
         ]
     },
+    {path: 'view-profile', component: ViewProfileComponent},
     {
         path: '',
         redirectTo: '/home',

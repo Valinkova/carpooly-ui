@@ -1,0 +1,102 @@
+<div class="clr-row trip-container">
+    <div class="clr-col-lg-4 clr-col-sm-6 clr-col-12">
+        <div class="card trip">
+            <div class="card-header">
+                Name: {{profile.name}}
+            </div>
+            <div class="card-block">
+                <div class="card-media-block">
+                    <img src="../../assets/car.jpg" class="card-media-image">
+                    <div class="card-media-description">
+                        <span class="card-media-title">
+                            Name:
+                        </span>
+                        <span class="card-media-text">
+                            {{profile.name}}
+                        </span>
+                    </div>
+                </div>
+                <div class="card-text">
+                    <div>Age: {{profile.age}}</div>
+                    <div>Car: {{profile.car}}</div>
+                    <div>Rank: {{profile.rank}}</div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <a class="btn btn-primary" (click)="rankDriver()">RANK</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div *ngIf="isOpenRank" class="modal">
+    <div class="modal-dialog modal-xl" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="title-rank">
+                Rank {{profile.name}}
+            </div>
+            <div class="btn-group rank">
+                <div class="radio btn">
+                    <input type="radio" name="btn-group-demo-radios" id="btn-demo-radio-1">
+                    <label for="btn-demo-radio-1">
+                    <span *ngFor="let icon of [1]">
+                         <clr-icon shape="star" class="is-solid"></clr-icon>
+                    </span>
+                    </label>
+                </div>
+
+                <div class="radio btn">
+                    <input type="radio" name="btn-group-demo-radios" id="btn-demo-radio-2">
+                    <label for="btn-demo-radio-2">
+                     <span *ngFor="let icon of [1,2]">
+                            <clr-icon shape="star" class="is-solid"></clr-icon>
+                     </span>
+                    </label>
+                </div>
+
+                <div class="radio btn">
+                    <input type="radio" name="btn-group-demo-radios" id="btn-demo-radio-3">
+                    <label for="btn-demo-radio-3">
+                    <span *ngFor="let icon of [1,2,3]">
+                         <clr-icon shape="star" class="is-solid"></clr-icon>
+                    </span>
+                    </label>
+                </div>
+
+                <div class="radio btn">
+                    <input type="radio" name="btn-group-demo-radios" id="btn-demo-radio-4">
+                    <label for="btn-demo-radio-4">
+                     <span *ngFor="let icon of [1,2,3,4]">
+                         <clr-icon shape="star" class="is-solid"></clr-icon>
+                     </span>
+                    </label>
+                </div>
+
+                <div class="radio btn">
+                    <input type="radio" name="btn-group-demo-radios" id="btn-demo-radio-5">
+                    <label for="btn-demo-radio-5">
+                    <span *ngFor="let icon of [1,2,3,4,5]">
+                       <clr-icon shape="star" class="is-solid"></clr-icon>
+                    </span>
+                    </label>
+                </div>
+            </div>
+
+            <form class="clr-form">
+                <div class="clr-control-container">
+                    <label for="textarea" class="clr-control-label">Comment</label>
+                    <textarea placeholder="Write comment..." clrTextarea name="comment"
+                              id="textarea"
+                              [(ngModel)]="comment"></textarea>
+                </div>
+            </form>
+
+            <button class="btn btn-danger" (click)="closeRankPage()">Cancel</button>
+            <button class="btn btn-success" (click)="closeRankPage()">Submit</button>
+        </div>
+    </div>
+    <div class="modal-backdrop" aria-hidden="true"></div>
+</div>
+
+

@@ -5,13 +5,15 @@
 
     <form [formGroup]="registrationForm" class="clr-form clr-form-horizontal">
         <div class="clr-form-control">
-            <label for="email" class="clr-control-label">email</label>
+            <label for="email" class="clr-control-label">Email</label>
             <div class="clr-control-container">
                 <div class="clr-input-wrapper">
                     <input type="text" id="email" placeholder="example@gmail.com"
                            class="clr-input" formControlName="email">
                     <clr-icon *ngIf="registrationForm.get('email').invalid" class="red-icon"
                               shape="exclamation-circle"></clr-icon>
+                    <clr-icon *ngIf="registrationForm.get('email').valid" class="green-icon"
+                              shape="success-standard"></clr-icon>
                 </div>
                 <span *ngIf="registrationForm.get('email').invalid" class="clr-subtext">This
                     field is required
@@ -20,13 +22,15 @@
         </div>
 
         <div class="clr-form-control">
-            <label for="password" class="clr-control-label">password</label>
+            <label for="password" class="clr-control-label">Password</label>
             <div class="clr-control-container">
                 <div class="clr-input-wrapper">
-                    <input type="text" id="password" placeholder="******"
+                    <input type="password" id="password" placeholder="******"
                            class="clr-input" formControlName="password">
                     <clr-icon *ngIf="registrationForm.get('password').invalid"
                               class="red-icon" shape="exclamation-circle"></clr-icon>
+                    <clr-icon *ngIf="registrationForm.get('password').valid" class="green-icon"
+                              shape="success-standard"></clr-icon>
                 </div>
                 <span *ngIf="registrationForm.get('password').invalid" class="clr-subtext">This
                     field is required and must be at least 6 characters long
@@ -35,13 +39,15 @@
         </div>
 
         <div class="clr-form-control">
-            <label for="name" class="clr-control-label">first name</label>
+            <label for="name" class="clr-control-label">First name</label>
             <div class="clr-control-container">
                 <div class="clr-input-wrapper">
                     <input type="text" id="name" placeholder="name"
                            class="clr-input" formControlName="firstName">
                     <clr-icon *ngIf="registrationForm.get('firstName').invalid"
                               class="red-icon" shape="exclamation-circle"></clr-icon>
+                    <clr-icon *ngIf="registrationForm.get('firstName').valid" class="green-icon"
+                              shape="success-standard"></clr-icon>
                 </div>
                 <span *ngIf="registrationForm.get('firstName').invalid" class="clr-subtext">This
                     field is required and must be at least 1 characters long
@@ -50,13 +56,15 @@
         </div>
 
         <div class="clr-form-control">
-            <label for="lastname" class="clr-control-label">last name</label>
+            <label for="lastname" class="clr-control-label">Last name</label>
             <div class="clr-control-container">
                 <div class="clr-input-wrapper">
                     <input type="text" id="lastname" placeholder="last name"
                            class="clr-input" formControlName="lastName">
                     <clr-icon *ngIf="registrationForm.get('lastName').invalid"
                               class="red-icon" shape="exclamation-circle"></clr-icon>
+                    <clr-icon *ngIf="registrationForm.get('lastName').valid" class="green-icon"
+                              shape="success-standard"></clr-icon>
                 </div>
                 <span *ngIf="registrationForm.get('lastName').invalid" class="clr-subtext">This
                     field is required and must be at least 1 characters long

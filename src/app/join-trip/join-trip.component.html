@@ -1,4 +1,22 @@
-<div class="clr-row trip-container">
+<form clrForm class="search-container">
+    <clr-input-container>
+        <label for="startCity">Start city
+            <input clrInput placeholder="start city" name="startCity" id="startCity"
+                   [(ngModel)]="selectedStartCity">
+        </label>
+    </clr-input-container>
+    <clr-input-container>
+        <label for="endCity">End city
+            <input clrInput placeholder="end city!" id="endCity"
+                   [(ngModel)]="selectedEndCity">
+        </label>
+    </clr-input-container>
+</form>
+
+<button class="btn" (click)="onSearch()">Search</button>
+
+
+<div class="clr-row join-trip-container">
     <div *ngFor="let trip of trips" class="clr-col-lg-4 clr-col-sm-6 clr-col-12">
         <div class="card trip">
             <div class="card-header">
@@ -7,7 +25,7 @@
             <div class="card-block">
                 <div>From: {{trip.fromCity}}</div>
                 <div>To: {{trip.toCity}}</div>
-                <div>Price: {{trip.price}}</div>
+                <div>Price: {{trip.price}}$</div>
                 <div>Free places: {{trip.capacity}}</div>
                 <div>Driver: {{trip.driver}}</div>
             </div>

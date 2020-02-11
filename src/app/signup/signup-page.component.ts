@@ -26,8 +26,8 @@ export class SignupPageComponent {
     onSubmitRegistration() {
         this.registrationService
             .register({
-                email: this.registrationForm.get('email').value, passwordHash: this.registrationForm.get('password').value,
-                firstName: this.registrationForm.get('firstName').value, surname: this.registrationForm.get('lastName').value
+                email: this.registrationForm.get('email').value, secret: this.registrationForm.get('password').value,
+                firstName: this.registrationForm.get('firstName').value, lastName: this.registrationForm.get('lastName').value
             })
             .subscribe((response: Response) => {
                 if (response.ok) {

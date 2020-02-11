@@ -6,16 +6,18 @@
                 class="nav-text title"><clr-icon shape="car"></clr-icon>Car Pooly</span></a>
     </div>
     <div class="header-nav">
-        <a href="create-trip" class="nav-link" (click)="navigateToCreateRidePage()"><span
-            class="nav-text">Create ride</span></a>
-        <a href="join-trip" class="nav-link" (click)="navigateToJoinTripPage()"><span
+        <a href="join-trip" class="nav-link" (click)="navigateToJoinTripPage()" [hidden]=!authService.isAuthorized()><span
                 class="nav-text">Join ride</span></a>
+        <a href="create-trip" class="nav-link" (click)="navigateToCreateRidePage()" [hidden]=!authService.isAuthorized()><span
+            class="nav-text">Create ride</span></a>  
     </div>
     <div class="header-actions">
-        <a href="login" class="nav-link" (click)="navigateToLoginPage()"><span
+        <a href="login" class="nav-link" (click)="navigateToLoginPage()" [hidden]=authService.isAuthorized()><span
                 class="nav-text">Sign in</span></a>
-        <a href="sign-up" class="nav-link" (click)="navigateToSignupPage()"><span
+        <a href="sign-up" class="nav-link" (click)="navigateToSignupPage()" [hidden]=authService.isAuthorized()><span
                 class="nav-text">Sign up</span></a>
+        <a href="log-out" class="nav-link" (click)="logout()" [hidden]=!authService.isAuthorized()><span
+            class="nav-text">Sign out</span></a>
     </div>
 </header>
     <router-outlet></router-outlet>

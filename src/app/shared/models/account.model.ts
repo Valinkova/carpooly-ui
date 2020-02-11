@@ -2,7 +2,7 @@
 export interface Account {
     id?: string;
     email: string;
-    passwordHash: string;
+    secret: string;
     firstName: string;
-    surname: string;
+    lastName: string;
 }

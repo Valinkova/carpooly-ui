@@ -12,10 +12,12 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HomePageComponent} from './home/home-page.component';
 import {JoinTripComponent} from './join-trip/join-trip.component';
 import {CreateTripComponent} from './create-trip/create-trip.component';
+import { CookieService } from 'ngx-cookie-service';
 import {LoginService} from './shared/services/login.service';
 import {RegistrationService} from './shared/services/registration.service';
 import {ViewProfileComponent} from './view-profile/view-profile.component';
 import {JoinTripService} from './shared/services/join-trip.service';
+import { AuthService } from './shared/services/auth.service';
 
 @NgModule({
     declarations: [
@@ -36,7 +38,7 @@ import {JoinTripService} from './shared/services/join-trip.service';
         FormsModule,
         ReactiveFormsModule
     ],
-    providers: [LoginService, RegistrationService, JoinTripService],
+    providers: [LoginService, RegistrationService, JoinTripService, CookieService, AuthService],
     bootstrap: [AppComponent]
 })
 export class AppModule {

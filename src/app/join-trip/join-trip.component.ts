@@ -18,10 +18,10 @@ export class JoinTripComponent {
         this.selectedStartCity = '';
         this.selectedEndCity = '';
         this.trips = [];
-        this.trips = [{driver: 'pufi', name: 'elka', fromCity: 'aaa', toCity: 'bbb', price: 23, capacity: 10},
-            {driver: 'puf', name: 'elka3', fromCity: 'aaa', toCity: 'bbb', price: 23, capacity: 10},
-            {driver: 'paf', name: 'elka4', fromCity: 'aaa', toCity: 'bbb', price: 23, capacity: 10},
-            {driver: 'pafi', name: 'elka6', fromCity: 'aaa', toCity: 'bbb', price: 23, capacity: 10}];
+        // this.trips = [{driver: 'pufi', name: 'elka', fromCity: 'aaa', toCity: 'bbb', price: 23, capacity: 10},
+        //     {driver: 'puf', name: 'elka3', fromCity: 'aaa', toCity: 'bbb', price: 23, capacity: 10},
+        //     {driver: 'paf', name: 'elka4', fromCity: 'aaa', toCity: 'bbb', price: 23, capacity: 10},
+        //     {driver: 'pafi', name: 'elka6', fromCity: 'aaa', toCity: 'bbb', price: 23, capacity: 10}];
     }
 
     navigateToViewProfilePage() {

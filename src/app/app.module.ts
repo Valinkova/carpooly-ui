@@ -16,7 +16,7 @@ import {CookieService} from 'ngx-cookie-service';
 import {LoginService} from './shared/services/login.service';
 import {RegistrationService} from './shared/services/registration.service';
 import {ViewProfileComponent} from './view-profile/view-profile.component';
-import {JoinTripService} from './shared/services/join-trip.service';
+import {RideService} from './shared/services/ride.service.';
 import {AuthService} from './shared/services/auth.service';
 import {ViewProfileService} from './shared/services/view-profile.service';
 import {MyProfileComponent} from './my-profile/my-profile.component';
@@ -41,7 +41,7 @@ import {MyProfileComponent} from './my-profile/my-profile.component';
         FormsModule,
         ReactiveFormsModule
     ],
-    providers: [LoginService, RegistrationService, JoinTripService, CookieService, AuthService, ViewProfileService],
+    providers: [LoginService, RegistrationService, RideService, CookieService, AuthService,ViewProfileService],
     bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {TripSchema} from '../shared/models/trip-schema';
 import {Driver} from '../shared/models/trip-schema';
 import {Router} from '@angular/router';
-import {JoinTripService} from '../shared/services/join-trip.service';
+import {RideService} from '../shared/services/ride.service.';
 
 @Component({
     selector: 'join-trip',
@@ -15,7 +15,7 @@ export class JoinTripComponent {
     private selectedStartCity: string;
     private selectedEndCity: string;
 
-    constructor(private router: Router, private joinTripService: JoinTripService) {
+    constructor(private router: Router, private joinTripService: RideService) {
         this.selectedStartCity = '';
         this.selectedEndCity = '';
         this.trips = [];
@@ -60,7 +60,7 @@ export class JoinTripComponent {
     }
 
     onSearch() {
-        this.joinTripService.searchTrip(this.selectedStartCity, this.selectedEndCity).subscribe((trips: TripSchema[]) => {
+        this.joinTripService.searchRide(this.selectedStartCity, this.selectedEndCity).subscribe((trips: TripSchema[]) => {
                 this.trips = trips;
             }
         );

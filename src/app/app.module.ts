@@ -16,7 +16,7 @@ import {CreateTripComponent} from './create-trip/create-trip.component';
 import {LoginService} from './shared/services/login.service';
 import {RegistrationService} from './shared/services/registration.service';
 import {ViewProfileComponent} from './view-profile/view-profile.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import {JoinTripService} from './shared/services/join-trip.service';
 
 
 @NgModule({
@@ -38,9 +38,8 @@ import {ReactiveFormsModule} from '@angular/forms';
         HttpClientModule,
         FormsModule,
         ReactiveFormsModule
-
     ],
-    providers: [LoginService, RegistrationService],
+    providers: [LoginService, RegistrationService, JoinTripService],
     bootstrap: [AppComponent]
 })
 export class AppModule {

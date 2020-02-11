@@ -1,7 +1,9 @@
-
 <div class="form-container ">
-    <form [formGroup]="loginForm" class="clr-form clr-form-horizontal">
+    <div class="sign-in-title">
+        <div id="title">Sign in</div>
+    </div>
 
+    <form [formGroup]="loginForm" class="clr-form clr-form-horizontal">
         <div class="clr-form-control">
             <label for="email" class="clr-control-label">Email</label>
             <div class="clr-control-container">
@@ -23,23 +25,25 @@
             <label for="password" class="clr-control-label">Password</label>
             <div class="clr-control-container">
                 <div class="clr-input-wrapper">
-                    <input type="text" id="password" name="password" placeholder="******"
+                    <input type="password" id="password" name="password" placeholder="******"
                            class="clr-input" formControlName="password">
+
                     <clr-icon *ngIf="loginForm.get('password').invalid" class="red-icon"
                               shape="info-standard"></clr-icon>
                     <clr-icon *ngIf="loginForm.get('password').valid" class="green-icon"
                               shape="success-standard"></clr-icon>
                 </div>
-                <span *ngIf="loginForm.get('password').invalid" class="clr-subtext">Password must be with
+                <span *ngIf="loginForm.get('password').invalid" class="clr-subtext">This
+                    field is required and must be with
                     6 characters</span>
             </div>
         </div>
     </form>
 
     <div class="submit-button">
-        <button [disabled]="!isValidForm"
-                class="btn btn-primary"
-                (click)="onSubmit()">Log in</button>
+        <button [disabled]="!isValidForm()"
+                class="btn btn-primary" (click)="onSubmit()">Log in
+        </button>
     </div>
 
 </div>

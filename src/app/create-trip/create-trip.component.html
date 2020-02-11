@@ -1,0 +1,31 @@
+<div>
+  <div class="form-container ">
+    <form clrForm [formGroup]="rideForm">
+      <clr-input-container>
+        <label for="name" class="clr-control-label">Name of the ride</label>
+        <input clrInput formControlName="name" />
+      </clr-input-container>
+      <clr-input-container>
+        <label for="maxPassengers" class="clr-control-label">Maximum amount of passengers that can join</label>
+        <input clrInput formControlName="maxPassengers" />
+      </clr-input-container>
+      <clr-date-container>
+        <label for="date" class="clr-control-label">Start date of the trip</label>
+        <input  type="date" clrDate formControlName="date" />
+      </clr-date-container>
+      <clr-input-container>
+        <label for="price" class="clr-control-label">The price to charge each passenger with</label>
+        <input clrInput formControlName="price" />
+      </clr-input-container>
+      <button #butonaNaIstinata class="btn btn-primary" type="submit" (click)="onSubmit()" [disabled]="!isValidInput()">Submit</button>
+    </form>
+  </div>
+  
+
+
+  <div class="map-container">
+    <div class="map-frame">
+      <div id="map"></div>
+    </div>
+  </div>
+</div>

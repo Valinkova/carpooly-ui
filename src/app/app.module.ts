@@ -8,7 +8,7 @@ import {ClarityModule} from '@clr/angular';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {SignupPageComponent} from './signup/signup-page.component';
 import {HttpClientModule} from '@angular/common/http';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MainPageComponent} from './main/main-page.component';
 import {HomePageComponent} from './home/home-page.component';
 import {JoinTripComponent} from './join-trip/join-trip.component';

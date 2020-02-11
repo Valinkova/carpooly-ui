@@ -23,7 +23,6 @@ export const ROUTES: Routes = [
         component: MainPageComponent,
         children: [
             {path: 'join-trip', component: JoinTripComponent},
-            {path: 'create-trip', component: CreateTripComponent}
         ]
     },
     {path: 'view-profile', component: ViewProfileComponent},

@@ -30,70 +30,79 @@
 </div>
 
 
-<div *ngIf="isOpenRank" class="modal">
+<div *ngIf="isOpenRank" class="modal rank-container">
     <div class="modal-dialog modal-xl" role="dialog" aria-hidden="true">
         <div class="modal-content">
             <div class="title-rank">
-                Rank {{profile.name}}
+                Rate {{profile.name}}
             </div>
-            <div class="btn-group rank">
-                <div class="radio btn">
-                    <input type="radio" name="btn-group-demo-radios" id="btn-demo-radio-1">
-                    <label for="btn-demo-radio-1">
+            <div class="rank">
+                <div class="btn-group">
+                    <div class="radio btn">
+                        <input type="radio" name="btn-group-demo-radios" id="btn-demo-radio-1"
+                               (click)="rateIt(1)">
+                        <label for="btn-demo-radio-1">
                     <span *ngFor="let icon of [1]">
                          <clr-icon shape="star" class="is-solid"></clr-icon>
                     </span>
-                    </label>
-                </div>
+                        </label>
+                    </div>
 
-                <div class="radio btn">
-                    <input type="radio" name="btn-group-demo-radios" id="btn-demo-radio-2">
-                    <label for="btn-demo-radio-2">
+                    <div class="radio btn">
+                        <input type="radio" name="btn-group-demo-radios" id="btn-demo-radio-2"
+                               (click)="rateIt(2)">
+                        <label for="btn-demo-radio-2">
                      <span *ngFor="let icon of [1,2]">
                             <clr-icon shape="star" class="is-solid"></clr-icon>
                      </span>
-                    </label>
-                </div>
+                        </label>
+                    </div>
 
-                <div class="radio btn">
-                    <input type="radio" name="btn-group-demo-radios" id="btn-demo-radio-3">
-                    <label for="btn-demo-radio-3">
+                    <div class="radio btn">
+                        <input type="radio" name="btn-group-demo-radios" id="btn-demo-radio-3"
+                               (click)="rateIt(3)">
+                        <label for="btn-demo-radio-3">
                     <span *ngFor="let icon of [1,2,3]">
                          <clr-icon shape="star" class="is-solid"></clr-icon>
                     </span>
-                    </label>
-                </div>
+                        </label>
+                    </div>
 
-                <div class="radio btn">
-                    <input type="radio" name="btn-group-demo-radios" id="btn-demo-radio-4">
-                    <label for="btn-demo-radio-4">
+                    <div class="radio btn">
+                        <input type="radio" name="btn-group-demo-radios" id="btn-demo-radio-4"
+                               (click)="rateIt(4)">
+                        <label for="btn-demo-radio-4">
                      <span *ngFor="let icon of [1,2,3,4]">
                          <clr-icon shape="star" class="is-solid"></clr-icon>
                      </span>
-                    </label>
-                </div>
+                        </label>
+                    </div>
 
-                <div class="radio btn">
-                    <input type="radio" name="btn-group-demo-radios" id="btn-demo-radio-5">
-                    <label for="btn-demo-radio-5">
+                    <div class="radio btn">
+                        <input type="radio" name="btn-group-demo-radios" id="btn-demo-radio-5"
+                               (click)="rateIt(5)">
+                        <label for="btn-demo-radio-5">
                     <span *ngFor="let icon of [1,2,3,4,5]">
                        <clr-icon shape="star" class="is-solid"></clr-icon>
                     </span>
-                    </label>
+                        </label>
+                    </div>
                 </div>
             </div>
 
-            <form class="clr-form">
-                <div class="clr-control-container">
-                    <label for="textarea" class="clr-control-label">Comment</label>
-                    <textarea placeholder="Write comment..." clrTextarea name="comment"
-                              id="textarea"
-                              [(ngModel)]="comment"></textarea>
-                </div>
-            </form>
+            <div class="comment-form">
+                <form class="clr-form">
+                    <div class="clr-control-container">
+                        <label for="textarea" class="clr-control-label">Comment</label>
+                        <textarea placeholder="Leave a comment..." clrTextarea name="comment"
+                                  id="textarea" [(ngModel)]="comment"></textarea>
+                    </div>
+                </form>
+            </div>
 
-            <button class="btn btn-danger" (click)="closeRankPage()">Cancel</button>
-            <button class="btn btn-success" (click)="closeRankPage()">Submit</button>
+            <button class="btn btn-danger" (click)="onCancelRateClick()">Cancel</button>
+            <button class="btn btn-success" (click)="onSubmitRateClick()">Submit</button>
+
         </div>
     </div>
     <div class="modal-backdrop" aria-hidden="true"></div>

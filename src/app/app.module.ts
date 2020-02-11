@@ -18,6 +18,8 @@ import {RegistrationService} from './shared/services/registration.service';
 import {ViewProfileComponent} from './view-profile/view-profile.component';
 import {JoinTripService} from './shared/services/join-trip.service';
 import {AuthService} from './shared/services/auth.service';
+import {ViewProfileService} from './shared/services/view-profile.service';
+import {MyProfileComponent} from './my-profile/my-profile.component';
 
 @NgModule({
     declarations: [
@@ -27,7 +29,8 @@ import {AuthService} from './shared/services/auth.service';
         HomePageComponent,
         JoinTripComponent,
         CreateTripComponent,
-        ViewProfileComponent
+        ViewProfileComponent,
+        MyProfileComponent
     ],
     imports: [
         AppRoutingModule,
@@ -38,7 +41,7 @@ import {AuthService} from './shared/services/auth.service';
         FormsModule,
         ReactiveFormsModule
     ],
-    providers: [LoginService, RegistrationService, JoinTripService, CookieService, AuthService],
+    providers: [LoginService, RegistrationService, JoinTripService, CookieService, AuthService, ViewProfileService],
     bootstrap: [AppComponent]
 })
 export class AppModule {

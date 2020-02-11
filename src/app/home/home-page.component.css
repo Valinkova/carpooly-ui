@@ -1,28 +1,30 @@
 .car-1 {
-    margin-top: 140px;
+    margin-top: 160px;
     margin-left: 20px;
     width: 10%;
     height: 10%;
     color: dodgerblue;
-    display: inline-block;
+    border-bottom: 3px solid grey;
 
 }
-
 
 .home-title {
     text-align: center;
     font-size: 40px;
     padding: 30px;
+
 }
 
 .building {
     display: inline-block;
     width: 30%;
     height: 30%;
-    float: right;
+    margin-top: 40px;
+    margin-left: 600px;
+    border-bottom: 3px solid grey;
 }
 
 .way {
-    border-bottom: 3px solid grey;
+    /*border-bottom: 3px solid grey;*/
 }
 

@@ -7,12 +7,12 @@
     </clr-input-container>
     <clr-input-container>
         <label for="endCity">End city
-            <input clrInput placeholder="end city" id="endCity" name="endCity"
+            <input clrInput placeholder="end city" id="endCity" name="endCity">
         </label>
     </clr-input-container>
 </form>
 
-<button *ngIf="!isEmptySearch()" class="btn" (click)="onSearch()">Search</button>
+<button class="btn" (click)="onSearch()">Search</button>
 
 <div class="clr-row join-trip-container">
     <div *ngFor="let trip of trips" class="clr-col-lg-4 clr-col-sm-6 clr-col-12">

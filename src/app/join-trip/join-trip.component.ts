@@ -28,11 +28,10 @@ export class JoinTripComponent {
         this.router.navigate(['view-profile']).then(r => console.log('Its successful'));
     }
 
-    isEmptySearch() {
-        return this.selectedEndCity === '' && this.selectedEndCity === '';
-    }
-
     onSearch() {
-        this.joinTripService.searchTrip(this.selectedStartCity, this.selectedEndCity);
+        this.joinTripService.searchTrip(this.selectedStartCity, this.selectedEndCity).subscribe((trips: TripSchema[]) => {
+                this.trips = trips;
+            }
+        );
     }
 }

@@ -1,10 +1,10 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
 import {HttpHeaders} from '@angular/common/http';
-import {catchError} from 'rxjs/operators';
 import {HttpErrorResponse} from '@angular/common/http';
+import {Observable} from 'rxjs';
 import {throwError} from 'rxjs';
+import {catchError} from 'rxjs/operators';
 
 @Injectable()
 export class JoinTripService {

@@ -1,7 +1,5 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { AuthService } from './shared/services/auth.service';
-import { Location } from '@angular/common';
+import {Component} from '@angular/core';
+import {AuthService} from './shared/services/auth.service';
 
 @Component({
     selector: 'app-root',
@@ -9,9 +7,10 @@ import { Location } from '@angular/common';
     styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(private authService: AuthService) {}
+    constructor(private authService: AuthService) {
+    }
 
-  logout() {
-    this.authService.logout();
-  }
+    logout() {
+        this.authService.logout();
+    }
 }

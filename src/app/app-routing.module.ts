@@ -6,7 +6,7 @@ import {HomePageComponent} from './home/home-page.component';
 import {JoinTripComponent} from './join-trip/join-trip.component';
 import {CreateTripComponent} from './create-trip/create-trip.component';
 import {ViewProfileComponent} from './view-profile/view-profile.component';
-import { AuthService } from './shared/services/auth.service';
+import {AuthService} from './shared/services/auth.service';
 
 export const ROUTES: Routes = [
     {path: 'home', component: HomePageComponent},

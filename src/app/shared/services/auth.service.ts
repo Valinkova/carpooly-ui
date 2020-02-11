@@ -1,20 +1,20 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import { CookieService } from 'ngx-cookie-service';
-import { JwtHelperService } from "@auth0/angular-jwt";
-import { CanActivate } from '@angular/router';
+import {CookieService} from 'ngx-cookie-service';
+import {JwtHelperService} from '@auth0/angular-jwt';
+import {CanActivate} from '@angular/router';
 
 @Injectable()
 export class AuthService implements CanActivate {
     COOKIE_KEY = 'access-token';
-    roles: string[] = ['PASSENGER', 'DRIVER', 'MODERATOR', 'ADMIN']
+    roles: string[] = ['PASSENGER', 'DRIVER', 'MODERATOR', 'ADMIN'];
 
     constructor(private http: HttpClient, private cookieService: CookieService) {
     }
 
     // tslint:disable-next-line: ban-types
     public isAuthorized(): boolean {
-       return this.cookieService.check(this.COOKIE_KEY);
+        return this.cookieService.check(this.COOKIE_KEY);
     }
 
     public getRole(): string {
@@ -22,7 +22,7 @@ export class AuthService implements CanActivate {
         const decodedToken = helper.decodeToken(this.getToken());
         console.log(JSON.stringify(decodedToken));
         return decodedToken.role[0];
-     }
+    }
 
     canActivate(): boolean {
         return this.isAuthorized();
@@ -52,15 +52,15 @@ export class AuthService implements CanActivate {
         this.cookieService.delete(this.COOKIE_KEY);
     }
 
-    private getApplicableRolesForRole(role: string): string[]{
+    private getApplicableRolesForRole(role: string): string[] {
         const index = this.roles.indexOf(role);
-        if(index===-1){
+        if (index === -1) {
             return [];
         }
-        return this.roles.slice(0, index+1);
+        return this.roles.slice(0, index + 1);
     }
 
-    private getApplicableRoles(): string[]{
+    private getApplicableRoles(): string[] {
         return this.getApplicableRolesForRole(this.getRole());
     }
 

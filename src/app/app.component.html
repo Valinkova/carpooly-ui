@@ -1,24 +1,30 @@
 <div class="container">
 
-<header class="header-6">
-    <div class="branding ">
-        <a routerLink="/home" routerLinkActive="active" class="nav-link" (click)="navigateToHomePage()"><span
-                class="nav-text title"><clr-icon shape="car"></clr-icon>Car Pooly</span></a>
-    </div>
-    <div class="header-nav">
-        <a routerLink="/join-trip" routerLinkActive="active" class="nav-link" [hidden]=!authService.isAuthorized()><span
-                class="nav-text">Join ride</span></a>
-        <a routerLink="/create-trip" routerLinkActive="active" class="nav-link" [hidden]=!authService.isAuthorized()><span
-            class="nav-text">Create ride</span></a>  
-    </div>
-    <div class="header-actions">
-        <a routerLink="/login" routerLinkActive="active" class="nav-link" (click)="navigateToLoginPage()" [hidden]=authService.isAuthorized()><span
-                class="nav-text">Sign in</span></a>
-        <a routerLink="/sign-up" routerLinkActive="active" class="nav-link" [hidden]=authService.isAuthorized()><span
-                class="nav-text">Sign up</span></a>
-        <a routerLink="/home" class="nav-link" (click)="logout()" [hidden]=!authService.isAuthorized()><span
-            class="nav-text">Sign out</span></a>
-    </div>
-</header>
+    <header class="header-6">
+        <div class="branding ">
+            <a routerLink="/home" routerLinkActive="active" class="nav-link"
+               (click)="navigateToHomePage()"><span
+                    class="nav-text title"><clr-icon shape="car"></clr-icon>Car Pooly</span></a>
+        </div>
+        <div class="header-nav">
+            <a routerLink="/join-trip" routerLinkActive="active" class="nav-link"
+               [hidden]=!authService.isAuthorized()><span
+                    class="nav-text">Join ride</span></a>
+            <a routerLink="/create-trip" routerLinkActive="active" class="nav-link"
+               [hidden]=!authService.isAuthorized()><span
+                    class="nav-text">Create ride</span></a>
+        </div>
+        <div class="header-actions">
+            <a routerLink="/login" routerLinkActive="active" class="nav-link"
+               (click)="navigateToLoginPage()" [hidden]=authService.isAuthorized()><span
+                    class="nav-text">Sign in</span></a>
+            <a routerLink="/sign-up" routerLinkActive="active" class="nav-link"
+               [hidden]=authService.isAuthorized()><span
+                    class="nav-text">Sign up</span></a>
+            <a routerLink="/home" class="nav-link" (click)="logout()"
+               [hidden]=!authService.isAuthorized()><span
+                    class="nav-text">Sign out</span></a>
+        </div>
+    </header>
     <router-outlet></router-outlet>
 </div>

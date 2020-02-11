@@ -1,5 +1,8 @@
 import {Component} from '@angular/core';
+import {OnInit} from '@angular/core';
 import {DriverProfile} from '../shared/models/profile';
+import {Driver} from '../shared/models/trip-schema';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
     selector: 'view-profile',
@@ -7,15 +10,21 @@ import {DriverProfile} from '../shared/models/profile';
     styleUrls: ['./view-profile.component.css']
 })
 
-export class ViewProfileComponent {
+export class ViewProfileComponent implements OnInit {
     private profile: DriverProfile;
     private isOpenRank: boolean;
     private comment: string;
 
-    constructor() {
+    constructor(private route: ActivatedRoute) {
         this.comment = '';
         this.isOpenRank = false;
-        this.profile = {name: 'Pafi Panayotov', age: 22, car: 'Audi', rank: [1, 2, 3, 4, 5]};
+    }
+
+    ngOnInit(): void {
+        this.route.queryParams
+            .subscribe((params: Driver) => {
+                this.profile = {name: params.name, age: params.age, car: params.car, rank: new Array(params.rank)};
+            });
     }
 
     rankDriver() {

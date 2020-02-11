@@ -3,5 +3,4 @@ export class DriverProfile {
     age: number;
     car: string;
     rank: number[];
-
 }

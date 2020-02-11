@@ -3,7 +3,6 @@ import {FormGroup} from '@angular/forms';
 import {FormControl} from '@angular/forms';
 import {Validators} from '@angular/forms';
 import {RegistrationService} from '../shared/services/registration.service';
-import {LoginService} from '../shared/services/login.service';
 import {Router} from '@angular/router';
 
 @Component({

@@ -5,27 +5,27 @@
     /* bottom: 0; */
     height: 50%;
     width: 50%;
-  }
-  
-  .map-frame {
+}
+
+.map-frame {
     border: 2px solid black;
     height: 100%;
-  }
-  
-  #map {
+}
+
+#map {
     height: 100%;
-  }
-  
-.form-container{
-  margin: 0 auto;
-  width: 70%;
-  height: 100%;
+}
+
+.form-container {
+    margin: 0 auto;
+    width: 70%;
+    height: 100%;
 }
 
 .leaflet-routing-container {
-  display:none;
+    display: none;
 }
 
-#butonaNaIstinata{
-  margin: 0 auto;
+#butonaNaIstinata {
+    margin: 0 auto;
 }

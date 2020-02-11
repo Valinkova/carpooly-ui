@@ -19,10 +19,10 @@
     display: inline-block;
     width: 30%;
     height: 30%;
-    float:right;
+    float: right;
 }
 
-.way{
+.way {
     border-bottom: 3px solid grey;
 }
 

@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-import {AfterViewInit} from '@angular/core';
 
 @Component({
     selector: 'home-page',

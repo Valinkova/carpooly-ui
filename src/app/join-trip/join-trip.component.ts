@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {TripSchema} from '../shared/models/trip-schema';
+import {Driver} from '../shared/models/trip-schema';
 import {Router} from '@angular/router';
 import {JoinTripService} from '../shared/services/join-trip.service';
 
@@ -18,14 +19,44 @@ export class JoinTripComponent {
         this.selectedStartCity = '';
         this.selectedEndCity = '';
         this.trips = [];
-        // this.trips = [{driver: 'pufi', name: 'elka', fromCity: 'aaa', toCity: 'bbb', price: 23, capacity: 10},
-        //     {driver: 'puf', name: 'elka3', fromCity: 'aaa', toCity: 'bbb', price: 23, capacity: 10},
-        //     {driver: 'paf', name: 'elka4', fromCity: 'aaa', toCity: 'bbb', price: 23, capacity: 10},
-        //     {driver: 'pafi', name: 'elka6', fromCity: 'aaa', toCity: 'bbb', price: 23, capacity: 10}];
+        this.trips = [{
+            driver: {name: 'pufi', age: 13, car: 'Audince', rank: 5},
+            name: 'elka',
+            fromCity: 'aaa',
+            toCity: 'bbb',
+            price: 23,
+            capacity: 10
+        },
+            {
+                driver: {name: 'pufi', age: 13, car: 'Audince', rank: 5},
+                name: 'elka3',
+                fromCity: 'aaa',
+                toCity: 'bbb',
+                price: 23,
+                capacity: 10
+            },
+            {
+                driver: {name: 'pufi', age: 13, car: 'Audince', rank: 5},
+                name: 'elka4',
+                fromCity: 'aaa',
+                toCity: 'bbb',
+                price: 23,
+                capacity: 10
+            },
+            {
+                driver: {name: 'pufi', age: 13, car: 'Audince', rank: 5},
+                name: 'elka6',
+                fromCity: 'aaa',
+                toCity: 'bbb',
+                price: 23,
+                capacity: 10
+            }];
     }
 
-    navigateToViewProfilePage() {
-        this.router.navigate(['view-profile']).then(r => console.log('Its successful'));
+    navigateToViewProfilePage(driver: Driver) {
+        this.router.navigate(['view-profile'],
+            {queryParams: {name: driver.name, age: driver.age, car: driver.car, rank: driver.rank}})
+            .then(r => console.log('Its successful'));
     }
 
     onSearch() {

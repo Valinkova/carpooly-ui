@@ -1,3 +1,5 @@
+<div class="join-title">Join trip</div>
+
 <form clrForm class="search-container">
     <clr-input-container>
         <label for="startCity">Start city
@@ -12,7 +14,7 @@
     </clr-input-container>
 </form>
 
-<button class="btn" (click)="onSearch()">Search</button>
+<button class="btn join-submit-btn" (click)="onSearch()">Search</button>
 
 <div class="clr-row join-trip-container">
     <div *ngFor="let trip of trips" class="clr-col-lg-4 clr-col-sm-6 clr-col-12">
@@ -25,11 +27,12 @@
                 <div>To: {{trip.toCity}}</div>
                 <div>Price: {{trip.price}}$</div>
                 <div>Free places: {{trip.capacity}}</div>
-                <div>Driver: {{trip.driver}}</div>
+                <div>Driver: {{trip.driver.name}}</div>
             </div>
             <div class="card-footer">
                 <a class="btn btn-primary">JOIN</a>
-                <a class="btn btn-primary" (click)="navigateToViewProfilePage()">VIEW PROFILE</a>
+                <a class="btn btn-primary" (click)="navigateToViewProfilePage(trip.driver)">VIEW
+                    PROFILE</a>
             </div>
         </div>
     </div>

@@ -11,6 +11,7 @@ import {ViewProfileComponent} from './view-profile/view-profile.component';
 export const ROUTES: Routes = [
     {path: 'home', component: HomePageComponent},
     {path: 'login', component: LoginPageComponent},
+    {path: 'create-trip', component: CreateTripComponent},
     {
         path: 'sign-up',
         component: SignupPageComponent,

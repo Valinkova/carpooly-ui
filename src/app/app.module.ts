@@ -20,7 +20,6 @@ import {ViewProfileComponent} from './view-profile/view-profile.component';
 import {RideService} from './shared/services/ride.service.';
 import {AuthService} from './shared/services/auth.service';
 import {ViewProfileService} from './shared/services/view-profile.service';
-import {MyProfileComponent} from './my-profile/my-profile.component';
 import { MyRidesComponent } from './my-rides/my-rides.component';
 
 @NgModule({
@@ -32,7 +31,6 @@ import { MyRidesComponent } from './my-rides/my-rides.component';
         JoinTripComponent,
         CreateTripComponent,
         ViewProfileComponent,
-        MyProfileComponent,
         MyRidesComponent
     ],
     imports: [

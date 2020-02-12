@@ -20,11 +20,8 @@ export class AppComponent {
     this.router
       .navigate(["view-profile"], {
         queryParams: {
-          email: account.email,
-          firstName: account.firstName,
-          lastName: account.lastName
+          id: account.id,
         }
       })
-      .then(r => console.log("Its successful"));
   }
 }

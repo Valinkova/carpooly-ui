@@ -38,9 +38,7 @@ export class JoinTripComponent implements OnInit {
     this.router
       .navigate(["view-profile"], {
         queryParams: {
-          email: driver.email,
-          firstName: driver.firstName,
-          lastName: driver.lastName,
+          id: driver.id,
         }
       })
       .then(r => console.log("Its successful"));

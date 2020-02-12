@@ -39,6 +39,22 @@ export class CreateTripComponent implements OnInit {
   });
   constructor(private rideService: RideService) {}
 
+  create() {
+    const coordinates: Cords[] = this.markers.map(
+      (marker: any): Cords => ({
+        latitude: marker.getLatLng().lat,
+        longitude: marker.getLatLng().lng
+      })
+    );
+    this.rideService.createRide({
+      name: this.rideForm.get('name').value,
+      startDate: this.rideForm.get('date').value,
+      maxPassengers: this.rideForm.get('maxPassengers').value,
+      price: this.rideForm.get('price').value,
+      coordinates
+    });
+  }
+
   ngOnInit(): void {
     this.initMap();
   }
@@ -128,21 +144,5 @@ export class CreateTripComponent implements OnInit {
       this.markers !== undefined &&
       this.markers.length > 1
     );
-  }
-
-  onSubmit() {
-    const coordinates: Cords[] = this.markers.map(
-      (marker: any): Cords => ({
-        latitude: marker.getLatLng().lat,
-        longitude: marker.getLatLng().lng
-      })
-    );
-    this.rideService.createRide({
-      name: this.rideForm.get('name').value,
-      startDate: this.rideForm.get('date').value,
-      maxPassengers: this.rideForm.get('maxPassengers').value,
-      price: this.rideForm.get('price').value,
-      coordinates
-    });
   }
 }

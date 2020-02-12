@@ -18,7 +18,8 @@
                     class="nav-text">My rides</span></a>
         </div>
         <div class="header-actions">
-            <a class="btn btn-primary" (click)="navigateToMyProfilePage()" [hidden]=!authService.isAuthorized()>My Profile</a>
+            <a class="nav-link" (click)="navigateToMyProfilePage()" [hidden]=!authService.isAuthorized()><span
+                class="nav-text">My Profile</span></a>
             <a routerLink="/login" routerLinkActive="active" class="nav-link"
                (click)="navigateToLoginPage()" [hidden]=authService.isAuthorized()><span
                     class="nav-text">Sign in</span></a>

@@ -13,15 +13,14 @@
                 Clear start
                 filter
             </button>
-            <div class="clr-control-container" [hidden]="startCoord===undefined">
+            <div class="clr-control-container">
                 <div class="clr-input-wrapper">
                     <label for="startDestinationRadiusInKm">Allowed drift radius(in km)
-                        <input type="number" clrInput placeholder="start point radius km"
+                        <input [disabled]="startCoord===undefined" type="number" clrInput placeholder="start point radius km"
                                (ngModelChange)="startDestinationRadiusInKm = $event"
                                name="startDestinationRadiusInKm"
                                id="startDestinationRadiusInKm"
-                               [ngModel]="startDestinationRadiusInKm"
-                               [hidden]="startCoord===undefined">
+                               [ngModel]="startDestinationRadiusInKm">
                     </label>
                 </div>
             </div>
@@ -34,14 +33,13 @@
             <button class="btn submit-btn" (click)="clearEnd()" [hidden]="endCoord===undefined">
                 Clear end filter
             </button>
-            <div class="clr-control-container" [hidden]="endCoord===undefined">
+            <div class="clr-control-container">
                 <div class="clr-input-wrapper">
                     <label for="endDestinationRadiusInKm">Allowed drift radius(in km)
-                        <input type="number" clrInput placeholder="end point radius km"
+                        <input [disabled]="endCoord===undefined" type="number" clrInput placeholder="end point radius km"
                                (ngModelChange)="endDestinationRadiusInKm = $event"
                                id="endDestinationRadiusInKm"
-                               name="endDestinationRadiusInKm" [ngModel]="endDestinationRadiusInKm"
-                               [hidden]="endCoord===undefined">
+                               name="endDestinationRadiusInKm" [ngModel]="endDestinationRadiusInKm">
                     </label>
                 </div>
             </div>

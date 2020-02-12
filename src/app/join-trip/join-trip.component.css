@@ -7,22 +7,16 @@
     margin: 10px;
 }
 
-.join-title {
-    font-size: xx-large;
-    margin: 30px auto;
-    width: 15%;
-    height: 5%;
-    border-bottom: 1px solid grey;
-}
-
 .search-container {
-    margin-left: 25px;
+    margin: 0 auto;
     width: 50%;
     height: 20%;
 }
 
 .join-submit-btn {
-    margin-left: 25px;
+    margin: 150px auto 0 auto;
+    width: 5%;
+    height: 5%;
 }
 
 .map-container {
@@ -41,4 +35,23 @@
 
 #map {
     height: 100%;
+}
+
+.map-container{
+    margin-top: 160px;
+    margin-left: -270px;
+}
+
+.join-title {
+    margin: 30px auto 30px auto;
+    width: 95%;
+    height: 20%;
+    border-bottom: 1px solid grey;
+}
+
+#title {
+    margin: 40px 220px 0 auto;
+    width: 30%;
+    height: 20%;
+    font-size: xx-large;
 }

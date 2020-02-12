@@ -1,3 +1,5 @@
+import {Account} from './account.model';
+
 export interface Ride {
     id?: number;
     name: string;
@@ -8,12 +10,13 @@ export interface Ride {
     driver?: Account;
     passengers?: any[];
 }
-export interface Coords{
+
+export interface Coords {
     latitude: number;
     longitude: number;
 }
 
-export interface RideFilterRequest{
+export interface RideFilterRequest {
     coordinates: Coords;
     radiusInKm: number;
 }

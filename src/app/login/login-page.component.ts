@@ -5,7 +5,7 @@ import {FormGroup} from '@angular/forms';
 import {FormControl} from '@angular/forms';
 import {Validators} from '@angular/forms';
 import {CookieService} from 'ngx-cookie-service';
-import { MatSnackBar } from "@angular/material";
+import {MatSnackBar} from '@angular/material';
 
 @Component({
     selector: 'login-page',
@@ -33,12 +33,12 @@ export class LoginPageComponent {
                     this.snackBar.open('Logged in successfully', 'OK', {
                         duration: 2000,
                         verticalPosition: 'top'
-                        });
-                }else {
-                    this.snackBar.open('Failed to login - '+response.statusText, 'OK', {
+                    });
+                } else {
+                    this.snackBar.open('Failed to login - ' + response.statusText, 'OK', {
                         duration: 5000,
                         verticalPosition: 'top'
-                        });
+                    });
                 }
             });
     }

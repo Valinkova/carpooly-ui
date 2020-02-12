@@ -1,62 +1,83 @@
-<div class="join-title">Join trip</div>
-
 <form clrForm class="search-container">
-  <div class="clr-row clr-justify-content-between">
-    <div class="clr-col-4">
-      <button class="btn submit-btn" (click)="selectStart()" [hidden]="startCoord!==undefined">Select start
-        coordinates</button>
-      <button class="btn submit-btn" (click)="clearStart()" [hidden]="startCoord===undefined">Clear start
-        filter</button>
-      <clr-input-container [hidden]="startCoord===undefined">
-        <label for="startCity">Allowed drift radius(in km)
-          <input type="number" clrInput placeholder="start point radius km"
-            (ngModelChange)="startDestinationRadiusInKm = $event" name="startDestinationRadiusInKm"
-            id="startDestinationRadiusInKm" [ngModel]="startDestinationRadiusInKm" [hidden]="startCoord===undefined">
-        </label>
-      </clr-input-container>
+    <div class="join-title">
+        <div id="title">Join trip</div>
     </div>
-    <div class="clr-col-4">
-      <button class="btn submit-btn" (click)="selectEnd()" [hidden]="endCoord!==undefined">Select end
-        coordinates</button>
-      <button class="btn submit-btn" (click)="clearEnd()" [hidden]="endCoord===undefined">Clear end filter</button>
-      <clr-input-container [hidden]="endCoord===undefined">
-        <label for="endCity">Allowed drift radius(in km)
-          <input type="number" clrInput placeholder="end point radius km"
-            (ngModelChange)="endDestinationRadiusInKm = $event" id="endDestinationRadiusInKm"
-            name="endDestinationRadiusInKm" [ngModel]="endDestinationRadiusInKm" [hidden]="endCoord===undefined">
-        </label>
-      </clr-input-container>
+
+    <div class="clr-row clr-justify-content-between">
+        <div class="clr-col-4">
+            <button class="btn submit-btn" (click)="selectStart()"
+                    [hidden]="startCoord!==undefined">Select start
+                coordinates
+            </button>
+            <button class="btn submit-btn" (click)="clearStart()" [hidden]="startCoord===undefined">
+                Clear start
+                filter
+            </button>
+            <div class="clr-control-container" [hidden]="startCoord===undefined">
+                <div class="clr-input-wrapper">
+                    <label for="startDestinationRadiusInKm">Allowed drift radius(in km)
+                        <input type="number" clrInput placeholder="start point radius km"
+                               (ngModelChange)="startDestinationRadiusInKm = $event"
+                               name="startDestinationRadiusInKm"
+                               id="startDestinationRadiusInKm"
+                               [ngModel]="startDestinationRadiusInKm"
+                               [hidden]="startCoord===undefined">
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="clr-col-4">
+            <button class="btn submit-btn" (click)="selectEnd()" [hidden]="endCoord!==undefined">
+                Select end
+                coordinates
+            </button>
+            <button class="btn submit-btn" (click)="clearEnd()" [hidden]="endCoord===undefined">
+                Clear end filter
+            </button>
+            <div class="clr-control-container" [hidden]="endCoord===undefined">
+                <div class="clr-input-wrapper">
+                    <label for="endDestinationRadiusInKm">Allowed drift radius(in km)
+                        <input type="number" clrInput placeholder="end point radius km"
+                               (ngModelChange)="endDestinationRadiusInKm = $event"
+                               id="endDestinationRadiusInKm"
+                               name="endDestinationRadiusInKm" [ngModel]="endDestinationRadiusInKm"
+                               [hidden]="endCoord===undefined">
+                    </label>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 </form>
 
-<button class="btn join-submit-btn" (click)="doSearch()">Search</button>
+<div class="join-submit-btn">
+    <button class="btn" (click)="doSearch()">Search</button>
+</div>
 
 <div class="clr-row join-trip-container">
-  <div *ngFor="let trip of trips" class="clr-col-lg-4 clr-col-sm-6 clr-col-12">
-    <div class="card trip">
-      <div class="card-header">
-        Name: {{trip.name}}
-      </div>
-      <div class="card-block">
-        <div>Price: {{trip.price}}$</div>
-        <div>Capacity: {{trip.maxPassengers}}</div>
-        <div>Date: {{trip.startDate}}</div>
-        <div>Driver firstName: {{trip.driver.firstName}}</div>
-        <div>Driver lastName: {{trip.driver.lastName}}</div>
-      </div>
-      <div class="card-footer">
-        <a class="btn btn-primary" (click)="joinRide(trip.id)">JOIN</a>
-        <a class="btn btn-primary" (click)="navigateToViewProfilePage(trip.driver)">VIEW
-          PROFILE</a>
-        <a class="btn btn-primary" (click)="viewRide(trip.id)">VIEW RIDE</a>
-      </div>
+    <div *ngFor="let trip of trips" class="clr-col-lg-4 clr-col-sm-6 clr-col-12">
+        <div class="card trip">
+            <div class="card-header">
+                Name: {{trip.name}}
+            </div>
+            <div class="card-block">
+                <div>Price: {{trip.price}}$</div>
+                <div>Capacity: {{trip.maxPassengers}}</div>
+                <div>Date: {{trip.startDate}}</div>
+                <div>Driver firstName: {{trip.driver.firstName}}</div>
+                <div>Driver lastName: {{trip.driver.lastName}}</div>
+            </div>
+            <div class="card-footer">
+                <a class="btn btn-primary" (click)="joinRide(trip.id)">JOIN</a>
+                <a class="btn btn-primary" (click)="navigateToViewProfilePage(trip.driver)">VIEW
+                    PROFILE</a>
+                <a class="btn btn-primary" (click)="viewRide(trip.id)">VIEW RIDE</a>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 
 <div class="map-container" [hidden]="isMapHidden">
-  <div class="map-frame">
-    <div id="map"></div>
-  </div>
+    <div class="map-frame">
+        <div id="map"></div>
+    </div>
 </div>

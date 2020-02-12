@@ -1,6 +1,6 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-import {MatButtonModule,MatSnackBarModule} from '@angular/material'
+import {MatButtonModule, MatSnackBarModule} from '@angular/material';
 
 import {AppComponent} from './app.component';
 import {LoginPageComponent} from './login/login-page.component';
@@ -20,7 +20,7 @@ import {ViewProfileComponent} from './view-profile/view-profile.component';
 import {RideService} from './shared/services/ride.service.';
 import {AuthService} from './shared/services/auth.service';
 import {ViewProfileService} from './shared/services/view-profile.service';
-import { MyRidesComponent } from './my-rides/my-rides.component';
+import {MyRidesComponent} from './my-rides/my-rides.component';
 
 @NgModule({
     declarations: [
@@ -39,11 +39,11 @@ import { MyRidesComponent } from './my-rides/my-rides.component';
         ClarityModule,
         BrowserAnimationsModule,
         HttpClientModule,
-        MatButtonModule,MatSnackBarModule,
+        MatButtonModule, MatSnackBarModule,
         FormsModule,
         ReactiveFormsModule
     ],
-    providers: [LoginService, RegistrationService, RideService, CookieService, AuthService,ViewProfileService],
+    providers: [LoginService, RegistrationService, RideService, CookieService, AuthService, ViewProfileService],
     bootstrap: [AppComponent]
 })
 export class AppModule {

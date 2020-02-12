@@ -1,6 +1,6 @@
 .map-container {
     position: absolute;
-    top: 10%;
+    top: 20%;
     left: 40%;
     /* bottom: 0; */
     height: 50%;
@@ -28,4 +28,23 @@
 
 #butonaNaIstinata {
     margin: 0 auto;
+}
+
+.create-title{
+    margin: 30px auto 30px auto;
+    width: 30%;
+    height: 20%;
+    border-bottom: 1px solid grey;
+}
+
+#title {
+    margin: 40px 120px 0 auto;
+    width: 40%;
+    height: 20%;
+    font-size: xx-large;
+}
+
+.create-ride-submit-btn{
+    margin-left: 160px;
+    margin-top: 50px;
 }

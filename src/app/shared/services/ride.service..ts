@@ -1,8 +1,8 @@
-import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
-import { HttpHeaders } from "@angular/common/http";
-import { Observable } from "rxjs";
-import { Ride, RideFilterRequest } from "../models/ride.model";
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Ride, RideFilterRequest } from '../models/ride.model';
 
 @Injectable()
 export class RideService {
@@ -12,29 +12,29 @@ export class RideService {
     startFilter: RideFilterRequest,
     endFilter: RideFilterRequest
   ): Observable<any> {
-    console.log("start Filter is " + JSON.stringify(startFilter));
-    console.log("end Filter is " + JSON.stringify(endFilter));
+    console.log('start Filter is ' + JSON.stringify(startFilter));
+    console.log('end Filter is ' + JSON.stringify(endFilter));
 
     return this.http.post(
-      "/api/rides/filter",
-      { startFilter: startFilter, endFilter: endFilter },
+      '/api/rides/filter',
+      { startFilter, endFilter },
       {
-        headers: new HttpHeaders().set("Content-Type", "application/json")
+        headers: new HttpHeaders().set('Content-Type', 'application/json')
       }
     );
   }
 
   public createRide(ride: Ride): Observable<Object> {
-    return this.http.post("/api/rides", ride, {
-      headers: new HttpHeaders().set("Content-Type", "application/json"),
-      observe: "response"
+    return this.http.post('/api/rides', ride, {
+      headers: new HttpHeaders().set('Content-Type', 'application/json'),
+      observe: 'response'
     });
   }
 
   public joinRide(rideId: string): Observable<any> {
     return this.http.post(`/api/rides/joinRide/${rideId}`, {
-      headers: new HttpHeaders().set("Content-Type", "application/json"),
-      observe: "response"
+      headers: new HttpHeaders().set('Content-Type', 'application/json'),
+      observe: 'response'
     });
   }
 
@@ -44,15 +44,15 @@ export class RideService {
 
   leaveRide(rideId: string): Observable<any> {
     return this.http.delete(`/api/rides/leaveRide/${rideId}`, {
-      headers: new HttpHeaders().set("Content-Type", "application/json"),
-      observe: "response"
+      headers: new HttpHeaders().set('Content-Type', 'application/json'),
+      observe: 'response'
     });
   }
 
   delete(rideId: string): Observable<any> {
     return this.http.delete(`/api/rides/${rideId}`, {
-      headers: new HttpHeaders().set("Content-Type", "application/json"),
-      observe: "response"
+      headers: new HttpHeaders().set('Content-Type', 'application/json'),
+      observe: 'response'
     });
   }
 }

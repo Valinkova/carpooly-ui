@@ -2,7 +2,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ClrForm } from '@clr/angular';
 import * as L from 'leaflet';
-import { MatSnackBar } from "@angular/material";
 import { RideService } from '../shared/services/ride.service.';
 import { Coords } from '../shared/models/ride.model';
 import { NotificationService } from '../notifications/notifications.service';

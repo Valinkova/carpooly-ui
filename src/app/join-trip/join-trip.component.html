@@ -68,7 +68,8 @@
               <a class="btn btn-primary" (click)="joinRide(trip.id, trip.name)">JOIN</a>
               <a class="btn btn-primary" (click)="navigateToViewProfilePage(trip.driver)">VIEW
                     PROFILE</a>
-                <a class="btn btn-primary" (click)="viewRide(trip.id)">VIEW RIDE</a>
+                <a class="btn btn-primary" (mouseleave)="isCreatedTripMapHidden=true"
+                   (mouseover)="viewRide(trip.id)">VIEW RIDE</a>
             </div>
         </div>
     </div>
@@ -77,5 +78,11 @@
 <div class="map-container" [hidden]="isMapHidden">
     <div class="map-frame">
         <div id="map"></div>
+    </div>
+</div>
+
+<div class="map2-container" [hidden]="isCreatedTripMapHidden">
+    <div class="map2-frame">
+        <div id="map2"></div>
     </div>
 </div>

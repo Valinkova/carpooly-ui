@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { RideService } from '../shared/services/ride.service.';
-import { Ride, Coords, RideFilterRequest } from '../shared/models/ride.model';
-import * as L from 'leaflet';
-import { DriverProfile } from '../shared/models/profile';
-import { Account } from '../shared/models/account.model';
+import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
+import { RideService } from "../shared/services/ride.service.";
+import { Ride, Coords, RideFilterRequest } from "../shared/models/ride.model";
+import * as L from "leaflet";
+import { DriverProfile } from "../shared/models/profile";
+import { Account } from "../shared/models/account.model";
+import { MatSnackBar } from "@angular/material";
+import { MessageArchivedComponent } from "../notifications/snackbar.component";
+import { NotificationService } from "../notifications/notifications.service";
 
 @Component({
-  selector: 'join-trip',
-  templateUrl: './join-trip.component.html',
-  styleUrls: ['./join-trip.component.css']
+  selector: "join-trip",
+  templateUrl: "./join-trip.component.html",
+  styleUrls: ["./join-trip.component.css"]
 })
 export class JoinTripComponent implements OnInit {
   private trips: Ride[];
@@ -25,7 +28,11 @@ export class JoinTripComponent implements OnInit {
   private startCoord: Coords = undefined;
   private endCoord: Coords = undefined;
 
-  constructor(private router: Router, private joinTripService: RideService) {
+  constructor(
+    private router: Router,
+    private joinTripService: RideService,
+    public notifier: NotificationService
+  ) {
     this.startDestinationRadiusInKm = 2;
     this.endDestinationRadiusInKm = 2;
     this.trips = [];
@@ -36,12 +43,12 @@ export class JoinTripComponent implements OnInit {
 
   navigateToViewProfilePage(driver: Account) {
     this.router
-      .navigate(['view-profile'], {
+      .navigate(["view-profile"], {
         queryParams: {
-          id: driver.id,
+          id: driver.id
         }
       })
-      .then(r => console.log('Its successful'));
+      .then(r => console.log("Its successful"));
   }
 
   doSearch() {
@@ -111,11 +118,11 @@ export class JoinTripComponent implements OnInit {
 
   initMap(): void {
     if (this.map === undefined) {
-      this.map = L.map('map', {
+      this.map = L.map("map", {
         zoom: 20
       });
       const tiles = L.tileLayer(
-        'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+        "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
         {
           maxZoom: 19,
           attribution:
@@ -124,12 +131,19 @@ export class JoinTripComponent implements OnInit {
       );
       this.map.fitBounds(this.BULG_BOUNDARIES);
       tiles.addTo(this.map);
-      this.map.on('click', this.addMarker.bind(this));
-      this.map.on('contextmenu', this.deleteLastMarker.bind(this));
+      this.map.on("click", this.addMarker.bind(this));
+      this.map.on("contextmenu", this.deleteLastMarker.bind(this));
     }
   }
 
-  joinRide(tripId: string) {
-      this.joinTripService.joinRide(tripId).subscribe();
+  joinRide(tripId: string, tripName?: string) {
+    this.joinTripService.joinRide(tripId).subscribe((response: Response) => {
+      this.notifier.showSnackBar(
+        `Joined ride ${tripName} successfully`,
+        "OK",
+        false
+      );
+    });
+    this.doSearch();
   }
 }

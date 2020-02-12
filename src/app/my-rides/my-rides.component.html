@@ -12,7 +12,12 @@
         <div>Driver lastName: {{trip.driver.lastName}}</div>
       </div>
       <div class="card-footer">
-        <a class="btn btn-primary" (click)="navigateToViewProfilePage(trip.driver)">VIEW DRIVER PROFILE</a>
+        <span [hidden]="trip.driver.id !== selfAccountId">You are the driver of this trip</span>
+        <a class="btn btn-primary" (click)="navigateToViewProfilePage(trip.driver)" [hidden]="trip.driver.id === selfAccountId">VIEW DRIVER PROFILE</a>
+      </div>
+      <div class="card-footer">
+        <a class="btn btn-danger" (click)="leaveRide(trip.id)"[hidden]="trip.driver.id === selfAccountId" >LEAVE RIDE</a>
+        <a class="btn btn-danger" (click)="deleteRide(trip.id)"[hidden]="trip.driver.id !== selfAccountId" >DELETE RIDE</a>
       </div>
     </div>
   </div>

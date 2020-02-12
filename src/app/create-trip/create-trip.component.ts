@@ -5,6 +5,7 @@ import * as L from 'leaflet';
 import { MatSnackBar } from "@angular/material";
 import { RideService } from '../shared/services/ride.service.';
 import { Coords } from '../shared/models/ride.model';
+import { NotificationService } from '../notifications/notifications.service';
 
 declare var require: any;
 
@@ -39,7 +40,7 @@ export class CreateTripComponent implements OnInit {
     maxPassengers: new FormControl(4, Validators.min(1)),
     price: new FormControl(0, Validators.min(0.1))
   });
-  constructor(private rideService: RideService, public snackBar: MatSnackBar) {}
+  constructor(private rideService: RideService, public notifier: NotificationService) {}
 
   create() {
     const coordinates: Coords[] = this.markers.map(
@@ -56,17 +57,11 @@ export class CreateTripComponent implements OnInit {
       pathCoordinates: coordinates
     }).subscribe((response: Response)=>{
         if(response.ok){
-            this.rideForm.reset();
-            this.markers=[];
-            this.polyline=undefined;
-            this.initMap();
-            this.snackBar.open('Trip was created successfully', 'OK', {
-                duration: 2000,
-             });
-        }else {
-            this.snackBar.open('Failed to create trip - '+response.statusText, 'OK', {
-                duration: 2000,
-             });
+          this.notifier.showSnackBar('Trip created successfully', 'OK', false);
+          this.rideForm.reset();
+          this.markers=[];
+          this.polyline=undefined;
+          this.initMap();
         }
     });
   }

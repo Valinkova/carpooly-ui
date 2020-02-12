@@ -67,8 +67,8 @@
                 <div>Driver lastName: {{trip.driver.lastName}}</div>
             </div>
             <div class="card-footer">
-                <a class="btn btn-primary" (click)="joinRide(trip.id)">JOIN</a>
-                <a class="btn btn-primary" (click)="navigateToViewProfilePage(trip.driver)">VIEW
+              <a class="btn btn-primary" (click)="joinRide(trip.id, trip.name)">JOIN</a>
+              <a class="btn btn-primary" (click)="navigateToViewProfilePage(trip.driver)">VIEW
                     PROFILE</a>
                 <a class="btn btn-primary" (click)="viewRide(trip.id)">VIEW RIDE</a>
             </div>

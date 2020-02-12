@@ -1,0 +1,20 @@
+<div class="clr-row join-trip-container">
+  <div *ngFor="let trip of trips" class="clr-col-lg-4 clr-col-sm-6 clr-col-12">
+    <div class="card trip">
+      <div class="card-header">
+        Name: {{trip.name}}
+      </div>
+      <div class="card-block">
+        <div>Price: {{trip.price}}$</div>
+        <div>Capacity: {{trip.maxPassengers}}</div>
+        <div>Date: {{trip.startDate}}</div>
+        <div>Driver firstName: {{trip.driver.firstName}}</div>
+        <div>Driver lastName: {{trip.driver.lastName}}</div>
+      </div>
+      <div class="card-footer">
+        <a class="btn btn-primary" (click)="navigateToViewProfilePage(trip.driver)">VIEW
+          PROFILE</a>
+      </div>
+    </div>
+  </div>
+</div>

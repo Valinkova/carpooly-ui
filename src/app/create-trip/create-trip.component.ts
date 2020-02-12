@@ -2,8 +2,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ClrForm } from '@clr/angular';
 import * as L from 'leaflet';
+import { MatSnackBar } from "@angular/material";
 import { RideService } from '../shared/services/ride.service.';
-import { Cords } from '../shared/models/ride.model';
+import { Coords } from '../shared/models/ride.model';
 
 declare var require: any;
 
@@ -13,6 +14,7 @@ declare var require: any;
   styleUrls: ['./create-trip.component.css']
 })
 export class CreateTripComponent implements OnInit {
+
   @ViewChild(ClrForm) clrForm;
   icon = {
     icon: L.icon({
@@ -37,11 +39,11 @@ export class CreateTripComponent implements OnInit {
     maxPassengers: new FormControl(4, Validators.min(1)),
     price: new FormControl(0, Validators.min(0.1))
   });
-  constructor(private rideService: RideService) {}
+  constructor(private rideService: RideService, public snackBar: MatSnackBar) {}
 
   create() {
-    const coordinates: Cords[] = this.markers.map(
-      (marker: any): Cords => ({
+    const coordinates: Coords[] = this.markers.map(
+      (marker: any): Coords => ({
         latitude: marker.getLatLng().lat,
         longitude: marker.getLatLng().lng
       })
@@ -51,7 +53,21 @@ export class CreateTripComponent implements OnInit {
       startDate: this.rideForm.get('date').value,
       maxPassengers: this.rideForm.get('maxPassengers').value,
       price: this.rideForm.get('price').value,
-      coordinates
+      pathCoordinates: coordinates
+    }).subscribe((response: Response)=>{
+        if(response.ok){
+            this.rideForm.reset();
+            this.markers=[];
+            this.polyline=undefined;
+            this.initMap();
+            this.snackBar.open('Trip was created successfully', 'OK', {
+                duration: 2000,
+             });
+        }else {
+            this.snackBar.open('Failed to create trip - '+response.statusText, 'OK', {
+                duration: 2000,
+             });
+        }
     });
   }
 

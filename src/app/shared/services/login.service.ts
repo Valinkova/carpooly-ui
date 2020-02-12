@@ -13,6 +13,6 @@ export class LoginService {
     public login(loginReq: LoginRequest): Observable<Object> {
         return this.http.post('/api/login', loginReq, {
             headers: new HttpHeaders().set('Content-Type', 'application/json'), observe: 'response'
-        }).pipe(catchError((error: HttpErrorResponse) => throwError(error)));
+        });
     }
 }

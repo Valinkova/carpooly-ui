@@ -7,11 +7,13 @@ import {JoinTripComponent} from './join-trip/join-trip.component';
 import {CreateTripComponent} from './create-trip/create-trip.component';
 import {ViewProfileComponent} from './view-profile/view-profile.component';
 import {AuthService} from './shared/services/auth.service';
+import { MyRidesComponent } from './my-rides/my-rides.component';
 
 export const ROUTES: Routes = [
     {path: 'home', component: HomePageComponent},
     {path: 'login', component: LoginPageComponent},
     {path: 'join-trip', component: JoinTripComponent, canActivate: [AuthService]},
+    {path: 'my-rides', component: MyRidesComponent, canActivate: [AuthService]},
     {path: 'create-trip', component: CreateTripComponent, canActivate: [AuthService]},
     {
         path: 'sign-up',

@@ -1,9 +1,6 @@
 import {Component} from '@angular/core';
 import {OnInit} from '@angular/core';
-import {DriverProfile} from '../shared/models/profile';
-import {Driver} from '../shared/models/trip-schema';
 import {ActivatedRoute} from '@angular/router';
-import {logger} from 'codelyzer/util/logger';
 import {ViewProfileService} from '../shared/services/view-profile.service';
 
 @Component({
@@ -11,9 +8,8 @@ import {ViewProfileService} from '../shared/services/view-profile.service';
     templateUrl: './view-profile.component.html',
     styleUrls: ['./view-profile.component.css']
 })
-
 export class ViewProfileComponent implements OnInit {
-    private profile: DriverProfile;
+    private profile: Account;
     private isOpenRank: boolean;
     private comment: string;
     private rate: number;
@@ -25,8 +21,8 @@ export class ViewProfileComponent implements OnInit {
 
     ngOnInit(): void {
         this.route.queryParams
-            .subscribe((params: Driver) => {
-                this.profile = {name: params.name, age: params.age, car: params.car, rank: new Array(params.rank)};
+            .subscribe((params: Account) => {
+                this.profile = params;
             });
     }
 

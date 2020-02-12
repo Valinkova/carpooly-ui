@@ -13,8 +13,12 @@
             <a routerLink="/create-trip" routerLinkActive="active" class="nav-link"
                [hidden]=!authService.isAuthorized()><span
                     class="nav-text">Create ride</span></a>
+            <a routerLink="/my-rides" routerLinkActive="active" class="nav-link"
+            [hidden]=!authService.isAuthorized()><span
+                    class="nav-text">My rides</span></a>
         </div>
         <div class="header-actions">
+            <a class="btn btn-primary" (click)="navigateToMyProfilePage()" [hidden]=!authService.isAuthorized()>My Profile</a>
             <a routerLink="/login" routerLinkActive="active" class="nav-link"
                (click)="navigateToLoginPage()" [hidden]=authService.isAuthorized()><span
                     class="nav-text">Sign in</span></a>

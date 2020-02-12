@@ -1,11 +1,19 @@
 export interface Ride {
+    id?: number;
     name: string;
     startDate: string;
-    coordinates: Cords[];
+    pathCoordinates: Coords[];
     maxPassengers: number;
     price: number;
+    driver?: Account;
+    passengers?: any[];
 }
-export interface Cords{
+export interface Coords{
     latitude: number;
     longitude: number;
+}
+
+export interface RideFilterRequest{
+    coordinates: Coords;
+    radiusInKm: number;
 }

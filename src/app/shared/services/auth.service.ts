@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {CookieService} from 'ngx-cookie-service';
 import {JwtHelperService} from '@auth0/angular-jwt';
 import {CanActivate} from '@angular/router';
+import { Account } from '../models/account.model';
 
 @Injectable()
 export class AuthService implements CanActivate {
@@ -23,6 +24,13 @@ export class AuthService implements CanActivate {
         console.log(JSON.stringify(decodedToken));
         return decodedToken.role[0];
     }
+
+    getAccount(): Account {
+        const helper = new JwtHelperService();
+        const decodedToken = helper.decodeToken(this.getToken());
+        console.log(JSON.stringify(decodedToken.sub));
+        return JSON.parse(decodedToken.sub);
+      }
 
     canActivate(): boolean {
         return this.isAuthorized();

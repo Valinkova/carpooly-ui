@@ -5,6 +5,7 @@ import {FormGroup} from '@angular/forms';
 import {FormControl} from '@angular/forms';
 import {Validators} from '@angular/forms';
 import {CookieService} from 'ngx-cookie-service';
+import { MatSnackBar } from "@angular/material";
 
 @Component({
     selector: 'login-page',
@@ -17,7 +18,7 @@ export class LoginPageComponent {
         password: new FormControl('', [Validators.required, Validators.minLength(6)]),
     });
 
-    constructor(private loginService: LoginService, private router: Router, private cookieService: CookieService) {
+    constructor(private loginService: LoginService, private router: Router, private cookieService: CookieService, public snackBar: MatSnackBar) {
     }
 
     onSubmit() {
@@ -29,6 +30,15 @@ export class LoginPageComponent {
                     this.router
                         .navigate(['main-page'])
                         .then(r => console.log('Its successful'));
+                    this.snackBar.open('Logged in successfully', 'OK', {
+                        duration: 2000,
+                        verticalPosition: 'top'
+                        });
+                }else {
+                    this.snackBar.open('Failed to login - '+response.statusText, 'OK', {
+                        duration: 5000,
+                        verticalPosition: 'top'
+                        });
                 }
             });
     }
